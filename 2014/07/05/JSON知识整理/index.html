@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JSON知识整理 | 重度拖延症患者学习小分队</title>
+  <meta name="author" content="Lixuan Gong">
+  
+  <meta name="description" content="Python Node">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="JSON知识整理"/>
+  <meta property="og:site_name" content="重度拖延症患者学习小分队"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">重度拖延症患者学习小分队</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/list" title="All the tags.">
+			  <i class="fa fa-tags"></i>List
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> JSON知识整理</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <p>今天写公司移动项目接口时要用到JSON，借这个机会把过去一知半解的知识梳理一遍。</p>
+<h2 id="基本概念">基本概念</h2>
+<ul>
+<li>JSON 即 <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation</li>
+<li>JSON独立于语言  </li>
+</ul>
+<h2 id="将文本转换成JavaScript对象">将文本转换成JavaScript对象</h2>
+<ul>
+<li>JSON 文本格式在语法上与创建 JavaScript 对象的代码相同。</li>
+<li>由于这种相似性，无需解析器，JavaScript 程序能够使用内建的 eval()函数，用 JSON 数据来生成原生的 JavaScript 对象。  </li>
+</ul>
+<h2 id="JSON_Value">JSON Value</h2>
+<p>JSON值可以是:</p>
+<ul>
+<li>数字(整数或浮点数)</li>
+<li>字符串(在双引号中)</li>
+<li>逻辑值(true 或 false)</li>
+<li>数组(在方括号中)</li>
+<li>对象(在花括号中)</li>
+<li>null</li>
+</ul>
+<h2 id="JSON_Object">JSON Object</h2>
+<p>看例子<code>{ &quot;foo&quot;:&quot;Hello&quot; , &quot;bar&quot;:&quot;World&quot; }</code></p>
+<h2 id="JSON_Array">JSON Array</h2>
+<p>还是看例子 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">{<span class="string">"foo"</span>:[{ <span class="string">"foo"</span>:<span class="string">"Hello"</span> , <span class="string">"bar"</span>:<span class="string">"World"</span> },{ <span class="string">"foo"</span>:<span class="string">"Hello"</span> , <span class="string">"bar"</span>:<span class="string">"World"</span> }]}</div></pre></td></tr></table></figure>
+
+
+
+<h2 id="JSON_使用_JavaScript语法">JSON 使用 JavaScript语法</h2>
+<p>看例子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> json = {<span class="string">"foo"</span>:[{ <span class="string">"foo"</span>:<span class="string">"Hello"</span> , <span class="string">"bar"</span>:<span class="string">"World"</span> },   </div><div class="line">                   { <span class="string">"foo"</span>:<span class="string">"Hello"</span> , <span class="string">"bar"</span>:<span class="string">"World"</span> }]}</div></pre></td></tr></table></figure>
+
+
+<p>取值：  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">json.foo[<span class="number">0</span>].bar;</div></pre></td></tr></table></figure>
+
+
+
+<p>修改:  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">json.foo[<span class="number">0</span>].bar = <span class="string">'BSP'</span>;</div></pre></td></tr></table></figure>
+
+
+
+<h2 id="JSON_实例">JSON 实例</h2>
+<p>创建一个包含JSON的JS String:  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var json_string = "{"foo":[{ 'foo':'Hello' , 'bar':'World' },   </div><div class="line">                   { 'foo':'Hello' , 'bar':'World' }]}";</div></pre></td></tr></table></figure>
+
+
+<p>将字符串包含在括号中，用eval()函数生成JS对象: </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> json = <span class="built_in">eval</span>(<span class="string">"("</span>+json_string+<span class="string">")"</span>);</div></pre></td></tr></table></figure>
+
+
+<p><strong>eval() 函数可编译并执行任何 JavaScript 代码。这之中有潜在的注入安全问题。</strong>好在现代的浏览器提供了专门的JSON解析器。它只能识别文本，不进行编译，因此比eval函数更安全。  </p>
+<blockquote>
+<p>最后一句我自己也不懂(๑&gt;◡&lt;๑) </p>
+</blockquote>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2014/07/20/论码农的健康问题/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2014/07/01/特别的日子/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID" data-title="请替换成文章的标题" data-url="请替换成文章的网址"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"waraiotoko"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	7月 5 2014 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/JS/">JS<span>1</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/JSON/">JSON<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2014 Lixuan Gong
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>
