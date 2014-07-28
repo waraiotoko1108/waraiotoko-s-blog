@@ -25,8 +25,8 @@ categories: python
 `python stock_assistant.py sh600577 sh600011 sh600001`  
 Sample in Windows 7:  
 ![套套套](/win7sample.png)  
-Sample in Ubuntu 14.04:
-![还是套](https://camo.githubusercontent.com/539da74ba753babef22d21122086ee911c8fca2f/687474703a2f2f74752e6e6d7a682e6e65742f64692d5a5543322e706e67)  
+Sample in OS X 10.9.3:
+![还是套](/os_x_sample.png)  
 
 
 

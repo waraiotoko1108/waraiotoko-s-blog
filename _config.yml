@@ -12,7 +12,7 @@ language: zh-CN
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://www。waraiotoko.me
 root: /
 permalink: :year/:month/:day/:title/
 tag_dir: tags
@@ -67,7 +67,7 @@ logger_format:
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
-date_format: MMM D YYYY
+date_format: MMM Do YYYY
 time_format: H:mm:ss
 
 # Pagination
