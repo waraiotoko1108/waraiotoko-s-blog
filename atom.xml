@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[重度拖延症患者学习小分队]]></title>
+  <subtitle><![CDATA[九零后怪蜀黍]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2014-07-28T13:11:14.315Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name><![CDATA[Lixuan Gong]]></name>
+    <email><![CDATA[lixuan.gong@gmail.com]]></email>
+  </author>
+  
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[论码农的健康问题]]></title>
+    <link href="http://yoursite.com/2014/07/20/%E8%AE%BA%E7%A0%81%E5%86%9C%E7%9A%84%E5%81%A5%E5%BA%B7%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2014/07/20/论码农的健康问题/</id>
+    <published>2014-07-20T13:17:41.000Z</published>
+    <updated>2014-07-24T02:34:52.000Z</updated>
+    <content type="html"><![CDATA[<p>我最近发现干阿拉这行的，要么太瘦要么太胖。  </p>
+<p>虽然我体检报告正常，但是发现好几个同事的健康堪忧。久坐不动（<strong>得痔疮</strong>），加班熬夜（眼睛里布满<strong>血丝</strong>），该做的事拖着不做（<strong>bag skin too long</strong> (･ิω･ิ)）当然不是我啦</p>
+<p>导致这些疾病都是因为<strong>不锻炼</strong>啊 …(｡•ˇ‸ˇ•｡) …除了最后一个  </p>
+<p>改变的手段就是<strong>生活规律，积极锻炼</strong>，无他(✪ω✪)   </p>
+<blockquote>
+<p>MBPR GET !!!败家计划完成第一项！（学习计划呢。。。。。。。。）</p>
+</blockquote>
+]]></content>
+    
+    
+      <category term="代码之外" scheme="http://yoursite.com/tags/%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%A4%96/"/>
+    
+      <category term="生活" scheme="http://yoursite.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[JSON知识整理]]></title>
+    <link href="http://yoursite.com/2014/07/05/JSON%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/"/>
+    <id>http://yoursite.com/2014/07/05/JSON知识整理/</id>
+    <published>2014-07-05T13:15:41.000Z</published>
+    <updated>2014-07-24T02:34:52.000Z</updated>
+    <content type="html"><![CDATA[<p>今天写公司移动项目接口时要用到JSON，借这个机会把过去一知半解的知识梳理一遍。</p>
+<h2 id="基本概念">基本概念</h2>
+<ul>
+<li>JSON 即 <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation</li>
+<li>JSON独立于语言  </li>
+</ul>
+<h2 id="将文本转换成JavaScript对象">将文本转换成JavaScript对象</h2>
+<ul>
+<li>JSON 文本格式在语法上与创建 JavaScript 对象的代码相同。</li>
+<li>由于这种相似性，无需解析器，JavaScript 程序能够使用内建的 eval()函数，用 JSON 数据来生成原生的 JavaScript 对象。  </li>
+</ul>
+<h2 id="JSON_Value">JSON Value</h2>
+<p>JSON值可以是:</p>
+<ul>
+<li>数字(整数或浮点数)</li>
+<li>字符串(在双引号中)</li>
+<li>逻辑值(true 或 false)</li>
+<li>数组(在方括号中)</li>
+<li>对象(在花括号中)</li>
+<li>null</li>
+</ul>
+<h2 id="JSON_Object">JSON Object</h2>
+<p>看例子<code>{ &quot;foo&quot;:&quot;Hello&quot; , &quot;bar&quot;:&quot;World&quot; }</code></p>
+<h2 id="JSON_Array">JSON Array</h2>
+<p>还是看例子 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">{<span class="string">"foo"</span>:[{ <span class="string">"foo"</span>:<span class="string">"Hello"</span> , <span class="string">"bar"</span>:<span class="string">"World"</span> },{ <span class="string">"foo"</span>:<span class="string">"Hello"</span> , <span class="string">"bar"</span>:<span class="string">"World"</span> }]}</div></pre></td></tr></table></figure>
+
+
+
+<h2 id="JSON_使用_JavaScript语法">JSON 使用 JavaScript语法</h2>
+<p>看例子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> json = {<span class="string">"foo"</span>:[{ <span class="string">"foo"</span>:<span class="string">"Hello"</span> , <span class="string">"bar"</span>:<span class="string">"World"</span> },   </div><div class="line">                   { <span class="string">"foo"</span>:<span class="string">"Hello"</span> , <span class="string">"bar"</span>:<span class="string">"World"</span> }]}</div></pre></td></tr></table></figure>
+
+
+<p>取值：  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">json.foo[<span class="number">0</span>].bar;</div></pre></td></tr></table></figure>
+
+
+
+<p>修改:  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">json.foo[<span class="number">0</span>].bar = <span class="string">'BSP'</span>;</div></pre></td></tr></table></figure>
+
+
+
+<h2 id="JSON_实例">JSON 实例</h2>
+<p>创建一个包含JSON的JS String:  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var json_string = "{"foo":[{ 'foo':'Hello' , 'bar':'World' },   </div><div class="line">                   { 'foo':'Hello' , 'bar':'World' }]}";</div></pre></td></tr></table></figure>
+
+
+<p>将字符串包含在括号中，用eval()函数生成JS对象: </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> json = <span class="built_in">eval</span>(<span class="string">"("</span>+json_string+<span class="string">")"</span>);</div></pre></td></tr></table></figure>
+
+
+<p><strong>eval() 函数可编译并执行任何 JavaScript 代码。这之中有潜在的注入安全问题。</strong>好在现代的浏览器提供了专门的JSON解析器。它只能识别文本，不进行编译，因此比eval函数更安全。  </p>
+<blockquote>
+<p>最后一句我自己也不懂(๑&gt;◡&lt;๑) </p>
+</blockquote>
+]]></content>
+    
+    
+      <category term="JSON" scheme="http://yoursite.com/tags/JSON/"/>
+    
+      <category term="JS" scheme="http://yoursite.com/categories/JS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[这是个特别的日子]]></title>
+    <link href="http://yoursite.com/2014/07/01/%E7%89%B9%E5%88%AB%E7%9A%84%E6%97%A5%E5%AD%90/"/>
+    <id>http://yoursite.com/2014/07/01/特别的日子/</id>
+    <published>2014-07-01T13:52:41.000Z</published>
+    <updated>2014-07-24T02:34:52.000Z</updated>
+    <content type="html"><![CDATA[<p>今天一共发生了5件大事：  </p>
+<ul>
+<li>我的大学生活正式结束了，朋友们各奔前程( &gt;﹏&lt;。)～  </li>
+<li>无锡地铁开通╰( ᐖ╰)≡(╯ᐛ )╯</li>
+<li>安倍内阁宣布通过集体自卫权(⊙⊙！)   </li>
+<li>暂时被分入公司移动开发组 ╰(<em>°▽°</em>)╯  </li>
+<li>但是听说有个着急的项目，去了就天天加班ჰჰჰ❛‿❛ჴჴჴ</li>
+</ul>
+<p>唉，来不及伤感，明天就正式从学生成为社会人了。<br>各位，<code>Dog Rich,Not Forget!</code>  ლ(⁰⊖⁰ლ)</p>
+]]></content>
+    
+    
+      <category term="毕业" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A/"/>
+    
+      <category term="牢骚" scheme="http://yoursite.com/categories/%E7%89%A2%E9%AA%9A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[使用NVM管理node]]></title>
+    <link href="http://yoursite.com/2014/06/28/%E4%BD%BF%E7%94%A8NVM%E7%AE%A1%E7%90%86node/"/>
+    <id>http://yoursite.com/2014/06/28/使用NVM管理node/</id>
+    <published>2014-06-28T11:52:41.000Z</published>
+    <updated>2014-07-24T02:34:52.000Z</updated>
+    <content type="html"><![CDATA[<p>Ubuntu通过<code>sudo apt-get install node npm</code>获得的node与npm版本不符，导致<strong>express</strong>，<strong>hexo</strong>，<strong>mongoose</strong>等包安装之后命令无法使用。（所以这个博客是在Win7下用hexo建立的）。<br>  今天在Stack Overflow上看到了解决方案，就是通过<a href="https://github.com/creationix/nvm/" target="_blank" rel="external">nvm</a>来管理。  </p>
+<h2 id="安装NVM">安装NVM</h2>
+<ul>
+<li>安装git:<br><code>sudo apt-get install git git-core</code></li>
+<li>clone nvm到 ~/.nvm:<br><code>git clone https://github.com/creationix/nvm.git ~/.nvm</code></li>
+<li>导入nvm环境:<br><code>source ~/.nvm/nvm.sh  &amp;&amp;    
+[[ -r $NVM_DIR/bash_completion ]] &amp;&amp; . $NVM_DIR/bash_completion</code></li>
+</ul>
+<p>在<code>~/.bashrc</code>或者<code>~/.profile</code>中添加最后一行可以免去每次手动导入nvm环境的麻烦。  </p>
+<h2 id="使用NVM管理Node版本">使用NVM管理Node版本</h2>
+<ul>
+<li>安装指定版本的node:<br><code>nvm install 0.10.29</code>或者<code>nvm install 0.6</code>  </li>
+<li>使用某个版本的node:<br><code>vm use node  0.10.29</code>  </li>
+<li>查看所有安装版本:<br><code>nvm ls</code>  </li>
+<li>回到原环境:<br><code>nvm deactivate</code></li>
+<li>设置默认版本:<br><code>nvm alias default 0.10.29</code></li>
+<li>卸载某个版本的node：<br><code>nvm uninstall 0.10.29</code></li>
+</ul>
+<p>最后吐槽一下这几个礼拜学习node的感想就是  </p>
+<ul>
+<li><strong>大二大三</strong>的学弟学妹好强</li>
+<li>我这样下去会不会失业…………</li>
+</ul>
+]]></content>
+    
+    
+      <category term="node" scheme="http://yoursite.com/tags/node/"/>
+    
+      <category term="nvm" scheme="http://yoursite.com/tags/nvm/"/>
+    
+      <category term="node" scheme="http://yoursite.com/categories/node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[StockAssistant]]></title>
+    <link href="http://yoursite.com/2014/06/25/StockAssistant/"/>
+    <id>http://yoursite.com/2014/06/25/StockAssistant/</id>
+    <published>2014-06-25T08:06:13.000Z</published>
+    <updated>2014-07-26T15:25:21.000Z</updated>
+    <content type="html"><![CDATA[<p><strong>这次买的股票套惨了。</strong><br>为了方便上班能关注行情早日解套今后更好地工作，我才写了这个脚本。<br><a href="https://github.com/waraiotoko1108/Stock_Assistant" target="_blank" rel="external">下载点我</a>  </p>
+<h2 id="Stock_Assistant是什么?">Stock Assistant是什么?</h2>
+<p>一个抓股票数据的Python脚本，使用Tencent的证券API。当前版本是0.1，缓慢开发中。</p>
+<h2 id="Stock_Assistant现在有哪些功能？">Stock Assistant现在有哪些功能？</h2>
+<ul>
+<li>设置抓取间隔</li>
+<li>从文本文件读取股票代码</li>
+</ul>
+<h2 id="Dependencies">Dependencies</h2>
+<ul>
+<li>Python 2.7.x</li>
+<li>colorama &gt;= 0.2.5</li>
+</ul>
+<h2 id="USAGE">USAGE</h2>
+<p><code>python stock_assistant.py sh600577 sh600011 sh600001</code><br>Sample in Windows 7:<br><img src="/win7sample.png" alt="套套套"><br>Sample in OS X 10.9.3:<br><img src="/os_x_sample.png" alt="还是套">  </p>
+]]></content>
+    
+    
+      <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[first]]></title>
+    <link href="http://yoursite.com/2014/06/24/first/"/>
+    <id>http://yoursite.com/2014/06/24/first/</id>
+    <published>2014-06-24T08:06:13.000Z</published>
+    <updated>2014-07-24T02:34:52.000Z</updated>
+    <content type="html"><![CDATA[<p>这是我的<strong>第一篇博客</strong>，我使用hexo创建这个博客。<br>通过下面的命令，就可以创建文章了  </p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">D:<span class="command">\warai</span>-blog&gt; hexo new first_post</div><div class="line"><span class="special">[</span>info<span class="special">]</span> File created at D:<span class="command">\warai</span>-blog<span class="command">\source</span><span class="command">\_</span>posts<span class="command">\post</span>.md</div></pre></td></tr></table></figure>
+
+
+<p>感觉萌萌达。</p>
+]]></content>
+    
+    
+      <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
+    
+      <category term="foo" scheme="http://yoursite.com/categories/foo/"/>
+    
+  </entry>
+  
+</feed>
