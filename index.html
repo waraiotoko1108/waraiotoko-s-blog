@@ -99,8 +99,62 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+			<a href="/2014/08/04/POSITION与Z-INDEX/" >POSITION与Z-INDEX</a>
+			<span class="date"> 8月 4日 2014 </span>
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <p>这几天在做几个HTML5的页面，使用<a href="http://goratchet.com/" target="_blank" rel="external">Ratchet</a>框架。从w3cplus上学到了不少前端知识，说来我在读书的时候两度想学会CSS。却由于是纸上谈兵，至今仍是个<strong>菜鸟</strong>。<br>在这几天的工作中多次遇到html页面元素的定位和重叠错误。多数都是position属性和z-index的问题。而且每次解决类似问题的思路都是一样的。说到底还是对position和z-index的属性理解不够……  </p>
+<h2 id="POSITION的几个属性">POSITION的几个属性</h2>
+<ul>
+<li><code>值为float</code> :行内元素也会隐形变成块元素，元素会脱离文档的普通流，向左或右浮动，直到其外边缘碰到包含框或另一个浮动框。  </li>
+<li><code>值为relative</code> :可以相对于其在普通流中的位置偏移,<strong>但保留普通流中的空间</strong>。</li>
+<li><code>值为absolute</code> :行内元素变成块元素，元素会脱离文档的普通流，相对于最近的已定位祖先元素偏移，如果元素没有已定位的祖先元素，那么它的位置相对于最初的包含块偏移。</li>
+<li><code>值为fixed</code> :元素相对于浏览器窗口偏移，固定在浏览器的某个位置。  <blockquote>
+<p>上述四种情况下DOM元素有被覆盖的可能。    </p>
+</blockquote>
+</li>
+</ul>
+<h2 id="对z-index使用">对z-index使用</h2>
+<ul>
+<li><code>原理</code>: z-index值可以控制定位元素在垂直于显示屏方向（z值）上的堆叠顺序（stack order），值大的元素发生重叠时会在值小的元素上面。</li>
+<li><code>特性</code>: z-index值只决定<strong>同一父元素</strong>中的同级子元素的堆叠顺序。父元素的z-index值为子元素定义了堆叠顺序，恩就是DOM元素之间的拼爹╰( ᐖ╰)≡(╯ᐛ )╯。<blockquote>
+<p>   <strong>因此</strong>当发现DOM重叠错误时首先检查DOM的节点关系，然后才是比较z-index。  </p>
+</blockquote>
+</li>
+</ul>
+<p>举个栗子:  </p>
+<h2 id="简单总结及建议">简单总结及建议</h2>
+<ul>
+<li>记住<strong>CSS是社会的缩影</strong>,也要<strong>拼爹</strong>。  </li>
+<li>内容定位元素的z-index小于99，nav、tab元素大于100，父辈元素显示地加上<code>style=&quot;z-index: 0;&quot;</code>。<blockquote>
+<p>   八月份了额，Node、Augular、Flask一样都还没学。( &gt;﹏&lt;。)～  </p>
+</blockquote>
+</li>
+</ul>
+
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2014/08/04/POSITION与Z-INDEX/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 			<a href="/2014/07/20/论码农的健康问题/" >论码农的健康问题</a>
-			<span class="date"> 7月 20 2014 </span>
+			<span class="date"> 7月 20日 2014 </span>
 		</h3>
 	
 
@@ -133,7 +187,7 @@
 	<!-- display as entry -->
 		<h3 class="title">
 			<a href="/2014/07/05/JSON知识整理/" >JSON知识整理</a>
-			<span class="date"> 7月 5 2014 </span>
+			<span class="date"> 7月 5日 2014 </span>
 		</h3>
 	
 
@@ -216,7 +270,7 @@
 	<!-- display as entry -->
 		<h3 class="title">
 			<a href="/2014/07/01/特别的日子/" >这是个特别的日子</a>
-			<span class="date"> 7月 1 2014 </span>
+			<span class="date"> 7月 1日 2014 </span>
 		</h3>
 	
 
@@ -251,7 +305,7 @@
 	<!-- display as entry -->
 		<h3 class="title">
 			<a href="/2014/06/28/使用NVM管理node/" >使用NVM管理node</a>
-			<span class="date"> 6月 28 2014 </span>
+			<span class="date"> 6月 28日 2014 </span>
 		</h3>
 	
 
@@ -300,7 +354,7 @@
 	<!-- display as entry -->
 		<h3 class="title">
 			<a href="/2014/06/25/StockAssistant/" >StockAssistant</a>
-			<span class="date"> 6月 25 2014 </span>
+			<span class="date"> 6月 25日 2014 </span>
 		</h3>
 	
 
@@ -341,7 +395,7 @@
 	<!-- display as entry -->
 		<h3 class="title">
 			<a href="/2014/06/24/first/" >first</a>
-			<span class="date"> 6月 24 2014 </span>
+			<span class="date"> 6月 24日 2014 </span>
 		</h3>
 	
 
@@ -393,7 +447,7 @@
 			<div class="form-group has-success has-feedback">
   <form action="//google.com/search" method="get" accept-charset="utf-8" >
     <input type="search" name="q" results="0" placeholder="搜索" class="form-control">
-    <input type="hidden" name="q" value="site:yoursite.com">	
+    <input type="hidden" name="q" value="site:www。waraiotoko.me">	
   </form>
 </div>
 
@@ -402,6 +456,8 @@
 	<div class="widget">
 		<h4>分类</h4>
 		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/CSS/">CSS<span>1</span></a></li>
 		
 			<li><a href="/categories/JS/">JS<span>1</span></a></li>
 		
@@ -424,17 +480,19 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
+			<li><a href="/tags/代码之外/">代码之外<span>1</span></a></li>
+		
+			<li><a href="/tags/html5/">html5<span>1</span></a></li>
+		
+			<li><a href="/tags/blog/">blog<span>2</span></a></li>
+		
 			<li><a href="/tags/毕业/">毕业<span>1</span></a></li>
 		
 			<li><a href="/tags/node/">node<span>1</span></a></li>
 		
-			<li><a href="/tags/代码之外/">代码之外<span>1</span></a></li>
-		
-			<li><a href="/tags/blog/">blog<span>2</span></a></li>
+			<li><a href="/tags/nvm/">nvm<span>1</span></a></li>
 		
 			<li><a href="/tags/JSON/">JSON<span>1</span></a></li>
-		
-			<li><a href="/tags/nvm/">nvm<span>1</span></a></li>
 		
 		 
 		</ul>
@@ -446,6 +504,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2014/08/04/POSITION与Z-INDEX/" ><i class="fa fa-file-o"></i>POSITION与Z-INDEX</a>
+      </li>
     
       <li>
         <a href="/2014/07/20/论码农的健康问题/" ><i class="fa fa-file-o"></i>论码农的健康问题</a>
@@ -461,10 +523,6 @@
     
       <li>
         <a href="/2014/06/28/使用NVM管理node/" ><i class="fa fa-file-o"></i>使用NVM管理node</a>
-      </li>
-    
-      <li>
-        <a href="/2014/06/25/StockAssistant/" ><i class="fa fa-file-o"></i>StockAssistant</a>
       </li>
     
   </ul>

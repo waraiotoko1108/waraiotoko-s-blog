@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>论码农的健康问题 | 重度拖延症患者学习小分队</title>
+  <title>POSITION与Z-INDEX | 重度拖延症患者学习小分队</title>
   <meta name="author" content="Lixuan Gong">
   
   <meta name="description" content="Python Node">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="论码农的健康问题"/>
+  <meta property="og:title" content="POSITION与Z-INDEX"/>
   <meta property="og:site_name" content="重度拖延症患者学习小分队"/>
 
   
@@ -81,7 +81,7 @@
 
 	
 		<div class="page-header">		
-			<h1> 论码农的健康问题</h1>
+			<h1> POSITION与Z-INDEX</h1>
 		</div>		
 	
 
@@ -97,13 +97,34 @@
 
 	<!-- content -->
 	<div class="mypage">		
-	    <p>我最近发现干阿拉这行的，要么太瘦要么太胖。  </p>
-<p>虽然我体检报告正常，但是发现好几个同事的健康堪忧。久坐不动（<strong>得痔疮</strong>），加班熬夜（眼睛里布满<strong>血丝</strong>），该做的事拖着不做（<strong>bag skin too long</strong> (･ิω･ิ)）当然不是我啦</p>
-<p>导致这些疾病都是因为<strong>不锻炼</strong>啊 …(｡•ˇ‸ˇ•｡) …除了最后一个  </p>
-<p>改变的手段就是<strong>生活规律，积极锻炼</strong>，无他(✪ω✪)   </p>
-<blockquote>
-<p>MBPR GET !!!败家计划完成第一项！（学习计划呢。。。。。。。。）</p>
+	    <p>这几天在做几个HTML5的页面，使用<a href="http://goratchet.com/" target="_blank" rel="external">Ratchet</a>框架。从w3cplus上学到了不少前端知识，说来我在读书的时候两度想学会CSS。却由于是纸上谈兵，至今仍是个<strong>菜鸟</strong>。<br>在这几天的工作中多次遇到html页面元素的定位和重叠错误。多数都是position属性和z-index的问题。而且每次解决类似问题的思路都是一样的。说到底还是对position和z-index的属性理解不够……  </p>
+<h2 id="POSITION的几个属性">POSITION的几个属性</h2>
+<ul>
+<li><code>值为float</code> :行内元素也会隐形变成块元素，元素会脱离文档的普通流，向左或右浮动，直到其外边缘碰到包含框或另一个浮动框。  </li>
+<li><code>值为relative</code> :可以相对于其在普通流中的位置偏移,<strong>但保留普通流中的空间</strong>。</li>
+<li><code>值为absolute</code> :行内元素变成块元素，元素会脱离文档的普通流，相对于最近的已定位祖先元素偏移，如果元素没有已定位的祖先元素，那么它的位置相对于最初的包含块偏移。</li>
+<li><code>值为fixed</code> :元素相对于浏览器窗口偏移，固定在浏览器的某个位置。  <blockquote>
+<p>上述四种情况下DOM元素有被覆盖的可能。    </p>
 </blockquote>
+</li>
+</ul>
+<h2 id="对z-index使用">对z-index使用</h2>
+<ul>
+<li><code>原理</code>: z-index值可以控制定位元素在垂直于显示屏方向（z值）上的堆叠顺序（stack order），值大的元素发生重叠时会在值小的元素上面。</li>
+<li><code>特性</code>: z-index值只决定<strong>同一父元素</strong>中的同级子元素的堆叠顺序。父元素的z-index值为子元素定义了堆叠顺序，恩就是DOM元素之间的拼爹╰( ᐖ╰)≡(╯ᐛ )╯。<blockquote>
+<p>   <strong>因此</strong>当发现DOM重叠错误时首先检查DOM的节点关系，然后才是比较z-index。  </p>
+</blockquote>
+</li>
+</ul>
+<p>举个栗子:  </p>
+<h2 id="简单总结及建议">简单总结及建议</h2>
+<ul>
+<li>记住<strong>CSS是社会的缩影</strong>,也要<strong>拼爹</strong>。  </li>
+<li>内容定位元素的z-index小于99，nav、tab元素大于100，父辈元素显示地加上<code>style=&quot;z-index: 0;&quot;</code>。<blockquote>
+<p>   八月份了额，Node、Augular、Flask一样都还没学。( &gt;﹏&lt;。)～  </p>
+</blockquote>
+</li>
+</ul>
 	  
 	</div>
 
@@ -112,14 +133,14 @@
 	<div class="pagination">
 <ul class="pagination">
 	 
-				
-    	<li class="prev"><a href="/2014/08/04/POSITION与Z-INDEX/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
-  		
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+        
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2014/07/05/JSON知识整理/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2014/07/20/论码农的健康问题/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -130,7 +151,7 @@
 	
 	<!-- comment -->
 	  
-        <div class="ds-thread" data-thread-key="2014/07/20/论码农的健康问题/"></div>
+        <div class="ds-thread" data-thread-key="2014/08/04/POSITION与Z-INDEX/"></div>
   
   <div class="alignleft">
 </div>
@@ -145,7 +166,7 @@
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	7月 20日 2014 
+	8月 4日 2014 
 	</div>
 	
 
@@ -156,7 +177,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/生活/">生活<span>1</span></a></li>
+    <li><a href="/categories/CSS/">CSS<span>1</span></a></li>
   </li>
 
     </ul>
@@ -169,7 +190,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/代码之外/">代码之外<span>1</span></a></li>
+  <li><a href="/tags/html5/">html5<span>1</span></a></li>
     </ul>
 	</div>
 		
