@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>代码之外 | 重度拖延症患者学习小分队</title>
+  <title>Javscript Event研究（1） | 重度拖延症患者学习小分队</title>
   <meta name="author" content="Lixuan Gong">
   
   <meta name="description" content="Python Node">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="Javscript Event研究（1）"/>
   <meta property="og:site_name" content="重度拖延症患者学习小分队"/>
 
   
@@ -78,155 +78,125 @@
   	<div class="content">
     	 
 
-<!-- title -->
-<div class="page-header">
-  <h1 class="archive-title-tag">代码之外</h1>
-</div>
 
-<div class="row page">
-  <!-- cols -->
-  
-  <div class="col-md-9">
+	
+		<div class="page-header">		
+			<h1> Javscript Event研究（1）</h1>
+		</div>		
 	
 
-	  
-	  <!-- display as list -->
-	  <div class="archive">
-				
-		
-		
-			
-			
-			<h4 class="archive-ul" data-toggle="collapse" data-target="#2014">2014<b class="caret"></b></h4>
-			<ul id="2014" class="collapse in">
-			
-		
-<li class="listing-item">
-  <span class="date_class"> 2014-07-20 </span> &raquo;
-  
-  <span class="title"><a href="/2014/07/20/论码农的健康问题/" >论码农的健康问题</a></span>
-  
-</li>			
 
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <p>这次的博客讨论一个困扰我一个多月的问题。但是……由于现在已经11点48分了明天还要上班的(｡•ˇ‸ˇ•｡) ,所以我打算写成连载的形式，今天就算是起个头。另外想说明的是：我将这里当成是笔记，以后忘记了可以翻翻，同时希望能对同样从事移动开发的朋友有所帮助。  </p>
+<h2 id="何谓事件">何谓事件</h2>
+<p>所谓事件，就是web页面发生变化的一瞬间，比如滑动，DOM加载完毕等。在这时若使用事件监听器（也就是回调函数）去订阅事件，在事件发生的时候回调函数就会触发。  </p>
+<h2 id="事件捕获/冒泡">事件捕获/冒泡</h2>
+<p>偷张图来说明:<br><img src="/event.png" alt="套套套">  </p>
+<blockquote>
+<p>事件冒泡即由最具体的元素（文档嵌套最深节点）接收，然后逐步上传至document<br>事件捕获会由最先接收到事件的元素然后传向最里边（我们可以将元素想象成一个盒子装一个盒子，而不是一个积木堆积）  </p>
+</blockquote>
+<p>换句话说javascript事件包括三个阶段:  </p>
+<ul>
+<li>事件捕获  </li>
+<li>处理目标   </li>
+<li>事件冒泡        </li>
+</ul>
+<p>关于这三个阶段的详细解释就留为下一次的博客的内容。  </p>
+<blockquote>
+<p>( &gt;﹏&lt;。)～ 眼睛都睁不开了。</p>
+</blockquote>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+        
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2014/08/04/POSITION与Z-INDEX/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
 </ul>
 </div>
 
-
-</div> <!-- col-md-9/col-md-12 -->
-
-
-<div class="col-md-3">
-	<div id="sidebar">
-	
-			<div class="form-group has-success has-feedback">
-  <form action="//google.com/search" method="get" accept-charset="utf-8" >
-    <input type="search" name="q" results="0" placeholder="搜索" class="form-control">
-    <input type="hidden" name="q" value="site:www。waraiotoko.me">	
-  </form>
-</div>
-
-		
-			
-	<div class="widget">
-		<h4>分类</h4>
-		<ul class="tag_box inline list-unstyled">
-		
-			<li><a href="/categories/CSS/">CSS<span>1</span></a></li>
-		
-			<li><a href="/categories/JS/">JS<span>1</span></a></li>
-		
-			<li><a href="/categories/foo/">foo<span>1</span></a></li>
-		
-			<li><a href="/categories/js/">js<span>1</span></a></li>
-		
-			<li><a href="/categories/node/">node<span>1</span></a></li>
-		
-			<li><a href="/categories/python/">python<span>1</span></a></li>
-		
-			<li><a href="/categories/牢骚/">牢骚<span>1</span></a></li>
-		
-			<li><a href="/categories/生活/">生活<span>1</span></a></li>
-		
-		</ul>
+    </center>
 	</div>
+	
+	<!-- comment -->
+	  
+        <div class="ds-thread" data-thread-key="2014/08/19/Javascript Event研究/"></div>
+  
+  <div class="alignleft">
+</div>
 
-		
-			
-	<div class="widget">
-		<h4>标签云</h4>
-		<ul class="tag_box inline list-unstyled">		
-		
-			<li><a href="/tags/html5/">html5<span>1</span></a></li>
-		
-			<li><a href="/tags/node/">node<span>1</span></a></li>
-		
-			<li><a href="/tags/JSON/">JSON<span>1</span></a></li>
-		
-			<li><a href="/tags/nvm/">nvm<span>1</span></a></li>
-		
-			<li><a href="/tags/blog/">blog<span>2</span></a></li>
-		
-			<li><a href="/tags/代码之外/">代码之外<span>1</span></a></li>
-		
-			<li><a href="/tags/html5-js/">html5 js<span>1</span></a></li>
-		
-			<li><a href="/tags/毕业/">毕业<span>1</span></a></li>
-		
-		 
-		</ul>
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	8月 19日 2014 
 	</div>
-
-
-		
-			
-<div class="widget">
-  <h4>最新文章</h4>
-  <ul class="entry list-unstyled">
-    
-      <li>
-        <a href="/2014/08/19/Javascript Event研究/" ><i class="fa fa-file-o"></i>Javscript Event研究（1）</a>
-      </li>
-    
-      <li>
-        <a href="/2014/08/04/POSITION与Z-INDEX/" ><i class="fa fa-file-o"></i>POSITION与Z-INDEX</a>
-      </li>
-    
-      <li>
-        <a href="/2014/07/20/论码农的健康问题/" ><i class="fa fa-file-o"></i>论码农的健康问题</a>
-      </li>
-    
-      <li>
-        <a href="/2014/07/05/JSON知识整理/" ><i class="fa fa-file-o"></i>JSON知识整理</a>
-      </li>
-    
-      <li>
-        <a href="/2014/07/01/特别的日子/" ><i class="fa fa-file-o"></i>这是个特别的日子</a>
-      </li>
-    
-  </ul>
-</div>
-
-		
-			
-<div class="widget">
-	<h4>Links</h4>
-	<ul class="blogroll list-unstyled">
 	
-		<li><i class="fa fa-github"></i><a href="https://github.com/wzpan/freemind/" title="Freemind's Github repository." target="_blank"]);">Freemind</a></li>
-	
-		<li><i class="fa fa-github"></i><a href="http://www.github.com/waraiotoko1108" title="My Github account." target="_blank"]);">My Github</a></li>
-	
-	</ul>
-</div>
 
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/js/">js<span>1</span></a></li>
+  </li>
 
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/html5-js/">html5 js<span>1</span></a></li>
+    </ul>
+	</div>
 		
-	</div> <!-- sidebar -->
-</div> <!-- col-md-3 -->
 
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
 
+	
 
-
+</div><!-- row -->
 
 	</div>
   </div>

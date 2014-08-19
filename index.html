@@ -99,6 +99,50 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+			<a href="/2014/08/19/Javascript Event研究/" >Javscript Event研究（1）</a>
+			<span class="date"> 8月 19日 2014 </span>
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <p>这次的博客讨论一个困扰我一个多月的问题。但是……由于现在已经11点48分了明天还要上班的(｡•ˇ‸ˇ•｡) ,所以我打算写成连载的形式，今天就算是起个头。另外想说明的是：我将这里当成是笔记，以后忘记了可以翻翻，同时希望能对同样从事移动开发的朋友有所帮助。  </p>
+<h2 id="何谓事件">何谓事件</h2>
+<p>所谓事件，就是web页面发生变化的一瞬间，比如滑动，DOM加载完毕等。在这时若使用事件监听器（也就是回调函数）去订阅事件，在事件发生的时候回调函数就会触发。  </p>
+<h2 id="事件捕获/冒泡">事件捕获/冒泡</h2>
+<p>偷张图来说明:<br><img src="/event.png" alt="套套套">  </p>
+<blockquote>
+<p>事件冒泡即由最具体的元素（文档嵌套最深节点）接收，然后逐步上传至document<br>事件捕获会由最先接收到事件的元素然后传向最里边（我们可以将元素想象成一个盒子装一个盒子，而不是一个积木堆积）  </p>
+</blockquote>
+<p>换句话说javascript事件包括三个阶段:  </p>
+<ul>
+<li>事件捕获  </li>
+<li>处理目标   </li>
+<li>事件冒泡        </li>
+</ul>
+<p>关于这三个阶段的详细解释就留为下一次的博客的内容。  </p>
+<blockquote>
+<p>( &gt;﹏&lt;。)～ 眼睛都睁不开了。</p>
+</blockquote>
+
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2014/08/19/Javascript Event研究/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 			<a href="/2014/08/04/POSITION与Z-INDEX/" >POSITION与Z-INDEX</a>
 			<span class="date"> 8月 4日 2014 </span>
 		</h3>
@@ -463,6 +507,8 @@
 		
 			<li><a href="/categories/foo/">foo<span>1</span></a></li>
 		
+			<li><a href="/categories/js/">js<span>1</span></a></li>
+		
 			<li><a href="/categories/node/">node<span>1</span></a></li>
 		
 			<li><a href="/categories/python/">python<span>1</span></a></li>
@@ -482,17 +528,19 @@
 		
 			<li><a href="/tags/毕业/">毕业<span>1</span></a></li>
 		
-			<li><a href="/tags/nvm/">nvm<span>1</span></a></li>
-		
-			<li><a href="/tags/node/">node<span>1</span></a></li>
-		
 			<li><a href="/tags/JSON/">JSON<span>1</span></a></li>
+		
+			<li><a href="/tags/html5/">html5<span>1</span></a></li>
+		
+			<li><a href="/tags/html5-js/">html5 js<span>1</span></a></li>
+		
+			<li><a href="/tags/nvm/">nvm<span>1</span></a></li>
 		
 			<li><a href="/tags/代码之外/">代码之外<span>1</span></a></li>
 		
-			<li><a href="/tags/blog/">blog<span>2</span></a></li>
+			<li><a href="/tags/node/">node<span>1</span></a></li>
 		
-			<li><a href="/tags/html5/">html5<span>1</span></a></li>
+			<li><a href="/tags/blog/">blog<span>2</span></a></li>
 		
 		 
 		</ul>
@@ -504,6 +552,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2014/08/19/Javascript Event研究/" ><i class="fa fa-file-o"></i>Javscript Event研究（1）</a>
+      </li>
     
       <li>
         <a href="/2014/08/04/POSITION与Z-INDEX/" ><i class="fa fa-file-o"></i>POSITION与Z-INDEX</a>
@@ -519,10 +571,6 @@
     
       <li>
         <a href="/2014/07/01/特别的日子/" ><i class="fa fa-file-o"></i>这是个特别的日子</a>
-      </li>
-    
-      <li>
-        <a href="/2014/06/28/使用NVM管理node/" ><i class="fa fa-file-o"></i>使用NVM管理node</a>
       </li>
     
   </ul>
