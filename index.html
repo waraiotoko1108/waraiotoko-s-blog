@@ -99,7 +99,93 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
-			<a href="/2014/08/19/Javascript Event研究/" >Javscript Event研究（1）</a>
+			<a href="/2014/08/28/Javascript Event研究（2）/" >Javscript Event研究（2）</a>
+			<span class="date"> 8月 28日 2014 </span>
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <p> 拖延了10天，今天继续Javascript Event研究( ͡° ͜ʖ ͡°) 。  </p>
+<h2 id="DOM事件">DOM事件</h2>
+<p><a href="http://sandbox.runjs.cn/show/ij4rih6x" target="_blank" rel="external">例子点我</a>  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.w3.org/1999/xhtml"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"></span></div><div class="line">         <span class="id">#p</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">300px</span></span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">300px</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>;  <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid black</span></span>; <span class="rule">}</span></span></div><div class="line">         <span class="id">#c</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>; <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid red</span></span>; <span class="rule">}</span></span></div><div class="line">    <span class="tag">&lt;/<span class="title">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"p"</span>&gt;</span></div><div class="line">        parent</div><div class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"c"</span>&gt;</span></div><div class="line">            child</div><div class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">        <span class="keyword">var</span> p = <span class="built_in">document</span>.getElementById(<span class="string">'p'</span>),</div><div class="line">        c = <span class="built_in">document</span>.getElementById(<span class="string">'c'</span>);</div><div class="line">        c.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">            alert(<span class="string">'子节点捕获'</span>)</div><div class="line">        }, <span class="literal">true</span>);</div><div class="line"></div><div class="line">        c.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">            alert(<span class="string">'子节点冒泡'</span>)</div><div class="line">        }, <span class="literal">false</span>);</div><div class="line"></div><div class="line">        p.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">            alert(<span class="string">'父节点捕获'</span>)</div><div class="line">        }, <span class="literal">true</span>);</div><div class="line"></div><div class="line">        p.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">            alert(<span class="string">'父节点冒泡'</span>)</div><div class="line">        }, <span class="literal">false</span>);</div><div class="line">    <span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></div></pre></td></tr></table></figure>
+
+
+
+<p>解释一下：   </p>
+<ul>
+<li>点击parent，事件首先再document上然后parent捕获到事件，处于目标阶段然后event.target也等于parent，此时可以认为捕获事件结束。  </li>
+<li>当currentTarget与target相同时，js就处于处理目标阶段，之后开始冒泡，执行冒泡事件。   </li>
+<li>点击child情况有所不同，事件由document传向parent执行事件，然后传向child最后开始冒泡。  </li>
+</ul>
+<h2 id="事件对象">事件对象</h2>
+<blockquote>
+<p>所谓事件对象，是与特定对象相关，并且包含该事件详细信息的对象。</p>
+</blockquote>
+<p>各个事件的事件参数不一样，比如鼠标事件就会有相关坐标，包含和创建他的特定事件有关的属性和方法，触发的事件不一样，参数也不一样（比如鼠标事件就会有坐标信息）。比较重要的有一下几个   </p>
+<ol>
+<li>bubbles    <ul>
+<li>事件是否冒泡   </li>
+</ul>
+</li>
+<li>cancelable    <ul>
+<li>事件是否可以取消默认行为</li>
+</ul>
+</li>
+<li>currentTarget    </li>
+<li>defaultPrevent   <ul>
+<li>为true表明已经调用了preventDefault     </li>
+</ul>
+</li>
+<li>eventPhase       <ul>
+<li>调用事件处理程序的阶段：1 捕获；2 处于阶段；3 冒泡阶段（需要打断点查看）</li>
+</ul>
+</li>
+<li>traget        <ul>
+<li>事件目标            </li>
+</ul>
+</li>
+<li>trusted    </li>
+<li>type        </li>
+<li>view            </li>
+<li>preventDefault        <ul>
+<li>取消事件默认行为，cancelable是true时可以使用       </li>
+</ul>
+</li>
+<li>stopPropagation        <ul>
+<li>取消事件捕获/冒泡，bubbles为true才能使用        </li>
+</ul>
+</li>
+<li>stopImmediatePropagation        <ul>
+<li>取消事件进一步冒泡，并且组织任何事件处理程序被调用</li>
+</ul>
+</li>
+<li>createEvent            </li>
+</ol>
+<blockquote>
+<p>现在是上班时间，所以剩下的以后再写。（╯－＿－）╯╧╧<br>真相是拖延症又犯了。。。。。    </p>
+</blockquote>
+
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2014/08/28/Javascript Event研究（2）/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
+			<a href="/2014/08/19/Javascript Event研究（1）/" >Javscript Event研究（1）</a>
 			<span class="date"> 8月 19日 2014 </span>
 		</h3>
 	
@@ -115,7 +201,7 @@
 <h2 id="何谓事件">何谓事件</h2>
 <p>所谓事件，就是web页面发生变化的一瞬间，比如滑动，DOM加载完毕等。在这时若使用事件监听器（也就是回调函数）去订阅事件，在事件发生的时候回调函数就会触发。  </p>
 <h2 id="事件捕获/冒泡">事件捕获/冒泡</h2>
-<p>偷张图来说明:<br><img src="/event.png" alt="套套套">  </p>
+<p>偷张图来说明:<br><img src="/event.png" alt="">  </p>
 <blockquote>
 <p>事件冒泡即由最具体的元素（文档嵌套最深节点）接收，然后逐步上传至document<br>事件捕获会由最先接收到事件的元素然后传向最里边（我们可以将元素想象成一个盒子装一个盒子，而不是一个积木堆积）  </p>
 </blockquote>
@@ -135,7 +221,7 @@
 	
   
 </div>
-	<a type="button" href="/2014/08/19/Javascript Event研究/#more" class="btn btn-default more">阅读此文</a>
+	<a type="button" href="/2014/08/19/Javascript Event研究（1）/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -507,7 +593,7 @@
 		
 			<li><a href="/categories/foo/">foo<span>1</span></a></li>
 		
-			<li><a href="/categories/js/">js<span>1</span></a></li>
+			<li><a href="/categories/js/">js<span>2</span></a></li>
 		
 			<li><a href="/categories/node/">node<span>1</span></a></li>
 		
@@ -526,21 +612,21 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/毕业/">毕业<span>1</span></a></li>
-		
-			<li><a href="/tags/JSON/">JSON<span>1</span></a></li>
-		
-			<li><a href="/tags/html5/">html5<span>1</span></a></li>
-		
-			<li><a href="/tags/html5-js/">html5 js<span>1</span></a></li>
-		
 			<li><a href="/tags/nvm/">nvm<span>1</span></a></li>
+		
+			<li><a href="/tags/html5-js/">html5 js<span>2</span></a></li>
+		
+			<li><a href="/tags/blog/">blog<span>2</span></a></li>
 		
 			<li><a href="/tags/代码之外/">代码之外<span>1</span></a></li>
 		
+			<li><a href="/tags/html5/">html5<span>1</span></a></li>
+		
+			<li><a href="/tags/毕业/">毕业<span>1</span></a></li>
+		
 			<li><a href="/tags/node/">node<span>1</span></a></li>
 		
-			<li><a href="/tags/blog/">blog<span>2</span></a></li>
+			<li><a href="/tags/JSON/">JSON<span>1</span></a></li>
 		
 		 
 		</ul>
@@ -554,7 +640,11 @@
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2014/08/19/Javascript Event研究/" ><i class="fa fa-file-o"></i>Javscript Event研究（1）</a>
+        <a href="/2014/08/28/Javascript Event研究（2）/" ><i class="fa fa-file-o"></i>Javscript Event研究（2）</a>
+      </li>
+    
+      <li>
+        <a href="/2014/08/19/Javascript Event研究（1）/" ><i class="fa fa-file-o"></i>Javscript Event研究（1）</a>
       </li>
     
       <li>
@@ -567,10 +657,6 @@
     
       <li>
         <a href="/2014/07/05/JSON知识整理/" ><i class="fa fa-file-o"></i>JSON知识整理</a>
-      </li>
-    
-      <li>
-        <a href="/2014/07/01/特别的日子/" ><i class="fa fa-file-o"></i>这是个特别的日子</a>
       </li>
     
   </ul>

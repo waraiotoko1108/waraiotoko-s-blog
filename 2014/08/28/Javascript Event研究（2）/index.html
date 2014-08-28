@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Javscript Event研究（2） | 重度拖延症患者学习小分队</title>
+  <meta name="author" content="Lixuan Gong">
+  
+  <meta name="description" content="Python Node">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Javscript Event研究（2）"/>
+  <meta property="og:site_name" content="重度拖延症患者学习小分队"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">重度拖延症患者学习小分队</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/list" title="All the tags.">
+			  <i class="fa fa-tags"></i>List
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> Javscript Event研究（2）</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <p> 拖延了10天，今天继续Javascript Event研究( ͡° ͜ʖ ͡°) 。  </p>
+<h2 id="DOM事件">DOM事件</h2>
+<p><a href="http://sandbox.runjs.cn/show/ij4rih6x" target="_blank" rel="external">例子点我</a>  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.w3.org/1999/xhtml"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"></span></div><div class="line">         <span class="id">#p</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">300px</span></span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">300px</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>;  <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid black</span></span>; <span class="rule">}</span></span></div><div class="line">         <span class="id">#c</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>; <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid red</span></span>; <span class="rule">}</span></span></div><div class="line">    <span class="tag">&lt;/<span class="title">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"p"</span>&gt;</span></div><div class="line">        parent</div><div class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"c"</span>&gt;</span></div><div class="line">            child</div><div class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">        <span class="keyword">var</span> p = <span class="built_in">document</span>.getElementById(<span class="string">'p'</span>),</div><div class="line">        c = <span class="built_in">document</span>.getElementById(<span class="string">'c'</span>);</div><div class="line">        c.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">            alert(<span class="string">'子节点捕获'</span>)</div><div class="line">        }, <span class="literal">true</span>);</div><div class="line"></div><div class="line">        c.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">            alert(<span class="string">'子节点冒泡'</span>)</div><div class="line">        }, <span class="literal">false</span>);</div><div class="line"></div><div class="line">        p.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">            alert(<span class="string">'父节点捕获'</span>)</div><div class="line">        }, <span class="literal">true</span>);</div><div class="line"></div><div class="line">        p.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">            alert(<span class="string">'父节点冒泡'</span>)</div><div class="line">        }, <span class="literal">false</span>);</div><div class="line">    <span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></div></pre></td></tr></table></figure>
+
+
+
+<p>解释一下：   </p>
+<ul>
+<li>点击parent，事件首先再document上然后parent捕获到事件，处于目标阶段然后event.target也等于parent，此时可以认为捕获事件结束。  </li>
+<li>当currentTarget与target相同时，js就处于处理目标阶段，之后开始冒泡，执行冒泡事件。   </li>
+<li>点击child情况有所不同，事件由document传向parent执行事件，然后传向child最后开始冒泡。  </li>
+</ul>
+<h2 id="事件对象">事件对象</h2>
+<blockquote>
+<p>所谓事件对象，是与特定对象相关，并且包含该事件详细信息的对象。</p>
+</blockquote>
+<p>各个事件的事件参数不一样，比如鼠标事件就会有相关坐标，包含和创建他的特定事件有关的属性和方法，触发的事件不一样，参数也不一样（比如鼠标事件就会有坐标信息）。比较重要的有一下几个   </p>
+<ol>
+<li>bubbles    <ul>
+<li>事件是否冒泡   </li>
+</ul>
+</li>
+<li>cancelable    <ul>
+<li>事件是否可以取消默认行为</li>
+</ul>
+</li>
+<li>currentTarget    </li>
+<li>defaultPrevent   <ul>
+<li>为true表明已经调用了preventDefault     </li>
+</ul>
+</li>
+<li>eventPhase       <ul>
+<li>调用事件处理程序的阶段：1 捕获；2 处于阶段；3 冒泡阶段（需要打断点查看）</li>
+</ul>
+</li>
+<li>traget        <ul>
+<li>事件目标            </li>
+</ul>
+</li>
+<li>trusted    </li>
+<li>type        </li>
+<li>view            </li>
+<li>preventDefault        <ul>
+<li>取消事件默认行为，cancelable是true时可以使用       </li>
+</ul>
+</li>
+<li>stopPropagation        <ul>
+<li>取消事件捕获/冒泡，bubbles为true才能使用        </li>
+</ul>
+</li>
+<li>stopImmediatePropagation        <ul>
+<li>取消事件进一步冒泡，并且组织任何事件处理程序被调用</li>
+</ul>
+</li>
+<li>createEvent            </li>
+</ol>
+<blockquote>
+<p>现在是上班时间，所以剩下的以后再写。（╯－＿－）╯╧╧<br>真相是拖延症又犯了。。。。。    </p>
+</blockquote>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+        
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2014/08/19/Javascript Event研究（1）/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	  
+        <div class="ds-thread" data-thread-key="2014/08/28/Javascript Event研究（2）/"></div>
+  
+  <div class="alignleft">
+</div>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	8月 28日 2014 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/js/">js<span>2</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/html5-js/">html5 js<span>2</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2014 Lixuan Gong
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  <script type="text/javascript">
+var duoshuoQuery = {short_name:"waraiotoko"};
+        (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = 'http://static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0]
+                || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+</script>
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>
