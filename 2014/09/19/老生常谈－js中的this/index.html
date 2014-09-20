@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Javscript Event研究（1） | 重度拖延症患者学习小分队</title>
+  <title>老生常谈－js中的this | 重度拖延症患者学习小分队</title>
   <meta name="author" content="Lixuan Gong">
   
   <meta name="description" content="Python Node">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Javscript Event研究（1）"/>
+  <meta property="og:title" content="老生常谈－js中的this"/>
   <meta property="og:site_name" content="重度拖延症患者学习小分队"/>
 
   
@@ -81,7 +81,7 @@
 
 	
 		<div class="page-header">		
-			<h1> Javscript Event研究（1）</h1>
+			<h1> 老生常谈－js中的this</h1>
 		</div>		
 	
 
@@ -97,24 +97,65 @@
 
 	<!-- content -->
 	<div class="mypage">		
-	    <p>这次的博客讨论一个困扰我一个多月的问题。但是……由于现在已经11点48分了明天还要上班的(｡•ˇ‸ˇ•｡) ,所以我打算写成连载的形式，今天就算是起个头。另外想说明的是：我将这里当成是笔记，以后忘记了可以翻翻，同时希望能对同样从事移动开发的朋友有所帮助。  </p>
-<h2 id="何谓事件">何谓事件</h2>
-<p>所谓事件，就是web页面发生变化的一瞬间，比如滑动，DOM加载完毕等。在这时若使用事件监听器（也就是回调函数）去订阅事件，在事件发生的时候回调函数就会触发。  </p>
-<h2 id="事件捕获/冒泡">事件捕获/冒泡</h2>
-<p>偷张图来说明:<br><img src="/event.png" alt="">  </p>
+	    <p>为了战胜拖延症，今天来总结一下Javascript中的this关键字。  </p>
 <blockquote>
-<p>事件冒泡即由最具体的元素（文档嵌套最深节点）接收，然后逐步上传至document<br>事件捕获会由最先接收到事件的元素然后传向最里边（我们可以将元素想象成一个盒子装一个盒子，而不是一个积木堆积）  </p>
+<p>Javascript中this永远是指向调用它的对象。        －－W3School  </p>
 </blockquote>
-<p>换句话说javascript事件包括三个阶段:  </p>
-<ul>
-<li>事件捕获  </li>
-<li>处理目标   </li>
-<li>事件冒泡        </li>
-</ul>
-<p>关于这三个阶段的详细解释就留为下一次的博客的内容。  </p>
-<blockquote>
-<p>( &gt;﹏&lt;。)～ 眼睛都睁不开了。</p>
-</blockquote>
+<h2 id="看例一_纯代码解释对象方法调用">看例一 纯代码解释对象方法调用</h2>
+<pre><code><span class="keyword">var</span> x =<span class="number">1</span>;
+function testThis(){
+    console.log(this.x);
+}
+testThis();
+//这个例子中声明了一个全局变量x和一个全局方法（函数），上述两个对象都绑定在<span class="type">Window</span>上，因此当执行testThis()时this就是当前环境对象<span class="type">Window</span>，结果是<span class="number">1</span>。  
+<span class="keyword">var</span> o={};
+o.x = <span class="number">5</span>;
+o.<span class="keyword">method</span> = testThis;
+o.<span class="keyword">method</span>();
+//此时this指向o，因此结果是<span class="number">5</span>。    
+</code></pre><p>  对象调用方法的时候，方法里面的this就是指向调用他或者是拥有他的对象。</p>
+<h2 id="例子二_慢慢解释构造函数创建">例子二 慢慢解释构造函数创建</h2>
+<pre><code><span class="keyword">var</span> x = <span class="number">2</span>;
+<span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span>{
+    <span class="keyword">this</span>.x = <span class="number">1</span>;
+}
+
+<span class="keyword">var</span> o = <span class="keyword">new</span> test();
+<span class="built_in">console</span>.log(o.x);
+<span class="comment">//Javascript中的构造函数，通过new来创建一个实例，此时this为对象o，因此结果是1。</span>
+<span class="comment">//下面这个例子是Angular(快忘了！！！)中的Service</span>
+app.service(<span class="string">"MyService"</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">this</span>.test = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>);
+        test2();
+    }
+    <span class="function"><span class="keyword">function</span> <span class="title">test2</span><span class="params">()</span></span>{
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>);        
+    }
+}
+    MyService.test();        <span class="comment">//结果为MyService{test: function}和Window{}</span>
+);
+<span class="comment">//test2()是MyService的闭包（closure）。</span>
+</code></pre><h2 id="改变this的指向">改变this的指向</h2>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>{
+    <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);
+}
+<span class="keyword">var</span> o = {};
+o.x = <span class="number">1</span>;
+o.m = test;
+
+o.m.apply({x:<span class="number">5</span>});    <span class="comment">//5</span>
+o.m.call();        <span class="comment">//undefine</span>
+
+<span class="comment">//apply与call懂可以制定调用函数的上下文，默认是Global;</span>
+</code></pre><p>可以看到this的指向是不确定的，this值在进入上下文时确定，并且在上下文运行期间永久不变。上面的例子改变this的上下文，导致两次结果不一致也是最好的证据。   </p>
+<h2 id="解决之道">解决之道</h2>
+<p>血泪的教训：  </p>
+<ol>
+<li>Angular要将属性和方法给你提供一个$scope来绑定属性。  </li>
+<li>在js实践中不妨定义”val self = this”，在之后的作用域里面用self来操作对象的属性。</li>
+</ol>
+<p><strong>收工睡觉</strong></p>
 	  
 	</div>
 
@@ -123,14 +164,14 @@
 	<div class="pagination">
 <ul class="pagination">
 	 
-				
-    	<li class="prev"><a href="/2014/08/28/Javascript Event研究（2）/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
-  		
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+        
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2014/08/04/POSITION与Z-INDEX/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2014/08/28/Javascript Event研究（2）/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -141,7 +182,7 @@
 	
 	<!-- comment -->
 	  
-        <div class="ds-thread" data-thread-key="2014/08/19/Javascript Event研究（1）/"></div>
+        <div class="ds-thread" data-thread-key="2014/09/19/老生常谈－js中的this/"></div>
   
   <div class="alignleft">
 </div>
@@ -156,7 +197,7 @@
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	8月 19日 2014 
+	9月 19日 2014 
 	</div>
 	
 

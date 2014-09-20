@@ -99,6 +99,91 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+			<a href="/2014/09/19/老生常谈－js中的this/" >老生常谈－js中的this</a>
+			<span class="date"> 9月 19日 2014 </span>
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <p>为了战胜拖延症，今天来总结一下Javascript中的this关键字。  </p>
+<blockquote>
+<p>Javascript中this永远是指向调用它的对象。        －－W3School  </p>
+</blockquote>
+<h2 id="看例一_纯代码解释对象方法调用">看例一 纯代码解释对象方法调用</h2>
+<pre><code><span class="keyword">var</span> x =<span class="number">1</span>;
+function testThis(){
+    console.log(this.x);
+}
+testThis();
+//这个例子中声明了一个全局变量x和一个全局方法（函数），上述两个对象都绑定在<span class="type">Window</span>上，因此当执行testThis()时this就是当前环境对象<span class="type">Window</span>，结果是<span class="number">1</span>。  
+<span class="keyword">var</span> o={};
+o.x = <span class="number">5</span>;
+o.<span class="keyword">method</span> = testThis;
+o.<span class="keyword">method</span>();
+//此时this指向o，因此结果是<span class="number">5</span>。    
+</code></pre><p>  对象调用方法的时候，方法里面的this就是指向调用他或者是拥有他的对象。</p>
+<h2 id="例子二_慢慢解释构造函数创建">例子二 慢慢解释构造函数创建</h2>
+<pre><code><span class="keyword">var</span> x = <span class="number">2</span>;
+<span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span>{
+    <span class="keyword">this</span>.x = <span class="number">1</span>;
+}
+
+<span class="keyword">var</span> o = <span class="keyword">new</span> test();
+<span class="built_in">console</span>.log(o.x);
+<span class="comment">//Javascript中的构造函数，通过new来创建一个实例，此时this为对象o，因此结果是1。</span>
+<span class="comment">//下面这个例子是Angular(快忘了！！！)中的Service</span>
+app.service(<span class="string">"MyService"</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">this</span>.test = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>);
+        test2();
+    }
+    <span class="function"><span class="keyword">function</span> <span class="title">test2</span><span class="params">()</span></span>{
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>);        
+    }
+}
+    MyService.test();        <span class="comment">//结果为MyService{test: function}和Window{}</span>
+);
+<span class="comment">//test2()是MyService的闭包（closure）。</span>
+</code></pre><h2 id="改变this的指向">改变this的指向</h2>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>{
+    <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);
+}
+<span class="keyword">var</span> o = {};
+o.x = <span class="number">1</span>;
+o.m = test;
+
+o.m.apply({x:<span class="number">5</span>});    <span class="comment">//5</span>
+o.m.call();        <span class="comment">//undefine</span>
+
+<span class="comment">//apply与call懂可以制定调用函数的上下文，默认是Global;</span>
+</code></pre><p>可以看到this的指向是不确定的，this值在进入上下文时确定，并且在上下文运行期间永久不变。上面的例子改变this的上下文，导致两次结果不一致也是最好的证据。   </p>
+<h2 id="解决之道">解决之道</h2>
+<p>血泪的教训：  </p>
+<ol>
+<li>Angular要将属性和方法给你提供一个$scope来绑定属性。  </li>
+<li>在js实践中不妨定义”val self = this”，在之后的作用域里面用self来操作对象的属性。</li>
+</ol>
+<p><strong>收工睡觉</strong></p>
+
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2014/09/19/老生常谈－js中的this/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 			<a href="/2014/08/28/Javascript Event研究（2）/" >Javscript Event研究（2）</a>
 			<span class="date"> 8月 28日 2014 </span>
 		</h3>
@@ -593,7 +678,7 @@
 		
 			<li><a href="/categories/foo/">foo<span>1</span></a></li>
 		
-			<li><a href="/categories/js/">js<span>2</span></a></li>
+			<li><a href="/categories/js/">js<span>3</span></a></li>
 		
 			<li><a href="/categories/node/">node<span>1</span></a></li>
 		
@@ -612,21 +697,21 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/nvm/">nvm<span>1</span></a></li>
+			<li><a href="/tags/代码之外/">代码之外<span>1</span></a></li>
 		
-			<li><a href="/tags/html5-js/">html5 js<span>2</span></a></li>
+			<li><a href="/tags/node/">node<span>1</span></a></li>
 		
 			<li><a href="/tags/blog/">blog<span>2</span></a></li>
 		
-			<li><a href="/tags/代码之外/">代码之外<span>1</span></a></li>
+			<li><a href="/tags/nvm/">nvm<span>1</span></a></li>
 		
 			<li><a href="/tags/html5/">html5<span>1</span></a></li>
 		
 			<li><a href="/tags/毕业/">毕业<span>1</span></a></li>
 		
-			<li><a href="/tags/node/">node<span>1</span></a></li>
-		
 			<li><a href="/tags/JSON/">JSON<span>1</span></a></li>
+		
+			<li><a href="/tags/html5-js/">html5 js<span>3</span></a></li>
 		
 		 
 		</ul>
@@ -638,6 +723,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2014/09/19/老生常谈－js中的this/" ><i class="fa fa-file-o"></i>老生常谈－js中的this</a>
+      </li>
     
       <li>
         <a href="/2014/08/28/Javascript Event研究（2）/" ><i class="fa fa-file-o"></i>Javscript Event研究（2）</a>
@@ -653,10 +742,6 @@
     
       <li>
         <a href="/2014/07/20/论码农的健康问题/" ><i class="fa fa-file-o"></i>论码农的健康问题</a>
-      </li>
-    
-      <li>
-        <a href="/2014/07/05/JSON知识整理/" ><i class="fa fa-file-o"></i>JSON知识整理</a>
       </li>
     
   </ul>

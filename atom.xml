@@ -4,7 +4,7 @@
   <subtitle><![CDATA[九零后怪蜀黍]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www%E3%80%82waraiotoko.me/"/>
-  <updated>2014-08-28T06:22:58.252Z</updated>
+  <updated>2014-09-20T01:45:41.132Z</updated>
   <id>http://www。waraiotoko.me/</id>
   
   <author>
@@ -13,6 +13,80 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[老生常谈－js中的this]]></title>
+    <link href="http://www%E3%80%82waraiotoko.me/2014/09/19/%E8%80%81%E7%94%9F%E5%B8%B8%E8%B0%88%EF%BC%8Djs%E4%B8%AD%E7%9A%84this/"/>
+    <id>http://www。waraiotoko.me/2014/09/19/老生常谈－js中的this/</id>
+    <published>2014-09-19T15:37:29.000Z</published>
+    <updated>2014-09-19T16:40:44.000Z</updated>
+    <content type="html"><![CDATA[<p>为了战胜拖延症，今天来总结一下Javascript中的this关键字。  </p>
+<blockquote>
+<p>Javascript中this永远是指向调用它的对象。        －－W3School  </p>
+</blockquote>
+<h2 id="看例一_纯代码解释对象方法调用">看例一 纯代码解释对象方法调用</h2>
+<pre><code><span class="keyword">var</span> x =<span class="number">1</span>;
+function testThis(){
+    console.log(this.x);
+}
+testThis();
+//这个例子中声明了一个全局变量x和一个全局方法（函数），上述两个对象都绑定在<span class="type">Window</span>上，因此当执行testThis()时this就是当前环境对象<span class="type">Window</span>，结果是<span class="number">1</span>。  
+<span class="keyword">var</span> o={};
+o.x = <span class="number">5</span>;
+o.<span class="keyword">method</span> = testThis;
+o.<span class="keyword">method</span>();
+//此时this指向o，因此结果是<span class="number">5</span>。    
+</code></pre><p>  对象调用方法的时候，方法里面的this就是指向调用他或者是拥有他的对象。</p>
+<h2 id="例子二_慢慢解释构造函数创建">例子二 慢慢解释构造函数创建</h2>
+<pre><code><span class="keyword">var</span> x = <span class="number">2</span>;
+<span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span>{
+    <span class="keyword">this</span>.x = <span class="number">1</span>;
+}
+
+<span class="keyword">var</span> o = <span class="keyword">new</span> test();
+<span class="built_in">console</span>.log(o.x);
+<span class="comment">//Javascript中的构造函数，通过new来创建一个实例，此时this为对象o，因此结果是1。</span>
+<span class="comment">//下面这个例子是Angular(快忘了！！！)中的Service</span>
+app.service(<span class="string">"MyService"</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">this</span>.test = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>);
+        test2();
+    }
+    <span class="function"><span class="keyword">function</span> <span class="title">test2</span><span class="params">()</span></span>{
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>);        
+    }
+}
+    MyService.test();        <span class="comment">//结果为MyService{test: function}和Window{}</span>
+);
+<span class="comment">//test2()是MyService的闭包（closure）。</span>
+</code></pre><h2 id="改变this的指向">改变this的指向</h2>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>{
+    <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);
+}
+<span class="keyword">var</span> o = {};
+o.x = <span class="number">1</span>;
+o.m = test;
+
+o.m.apply({x:<span class="number">5</span>});    <span class="comment">//5</span>
+o.m.call();        <span class="comment">//undefine</span>
+
+<span class="comment">//apply与call懂可以制定调用函数的上下文，默认是Global;</span>
+</code></pre><p>可以看到this的指向是不确定的，this值在进入上下文时确定，并且在上下文运行期间永久不变。上面的例子改变this的上下文，导致两次结果不一致也是最好的证据。   </p>
+<h2 id="解决之道">解决之道</h2>
+<p>血泪的教训：  </p>
+<ol>
+<li>Angular要将属性和方法给你提供一个$scope来绑定属性。  </li>
+<li>在js实践中不妨定义”val self = this”，在之后的作用域里面用self来操作对象的属性。</li>
+</ol>
+<p><strong>收工睡觉</strong></p>
+]]></content>
+    
+    
+      <category term="html5 js" scheme="http://www%E3%80%82waraiotoko.me/tags/html5-js/"/>
+    
+      <category term="js" scheme="http://www%E3%80%82waraiotoko.me/categories/js/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Javscript Event研究（2）]]></title>
