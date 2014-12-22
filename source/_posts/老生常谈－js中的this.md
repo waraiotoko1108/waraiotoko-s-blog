@@ -6,7 +6,7 @@ categories:
   js
 ---
 为了战胜拖延症，今天来总结一下Javascript中的this关键字。  
-> Javascript中this永远是指向调用它的对象。		－－W3School  
+> Javascript中this将永远是指向调用它的对象。		－－W3School  
 
 ## 看例一 纯代码解释对象方法调用  
 	var x =1;
