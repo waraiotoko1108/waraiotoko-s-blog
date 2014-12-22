@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>老生常谈－js中的this | 重度拖延症患者学习小分队</title>
+  <title>Android自定义View | 重度拖延症患者学习小分队</title>
   <meta name="author" content="Lixuan Gong">
   
   <meta name="description" content="Python Node">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="老生常谈－js中的this"/>
+  <meta property="og:title" content="Android自定义View"/>
   <meta property="og:site_name" content="重度拖延症患者学习小分队"/>
 
   
@@ -81,7 +81,7 @@
 
 	
 		<div class="page-header">		
-			<h1> 老生常谈－js中的this</h1>
+			<h1> Android自定义View</h1>
 		</div>		
 	
 
@@ -97,65 +97,40 @@
 
 	<!-- content -->
 	<div class="mypage">		
-	    <p>为了战胜拖延症，今天来总结一下Javascript中的this关键字。  </p>
-<blockquote>
-<p>Javascript中this永远是指向调用它的对象。        －－W3School  </p>
-</blockquote>
-<h2 id="看例一_纯代码解释对象方法调用">看例一 纯代码解释对象方法调用</h2>
-<pre><code><span class="keyword">var</span> x =<span class="number">1</span>;
-function testThis(){
-    console.log(this.x);
-}
-testThis();
-//这个例子中声明了一个全局变量x和一个全局方法（函数），上述两个对象都绑定在<span class="type">Window</span>上，因此当执行testThis()时this就是当前环境对象<span class="type">Window</span>，结果是<span class="number">1</span>。  
-<span class="keyword">var</span> o={};
-o.x = <span class="number">5</span>;
-o.<span class="keyword">method</span> = testThis;
-o.<span class="keyword">method</span>();
-//此时this指向o，因此结果是<span class="number">5</span>。    
-</code></pre><p>  对象调用方法的时候，方法里面的this就是指向调用他或者是拥有他的对象。</p>
-<h2 id="例子二_慢慢解释构造函数创建">例子二 慢慢解释构造函数创建</h2>
-<pre><code><span class="keyword">var</span> x = <span class="number">2</span>;
-<span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span>{
-    <span class="keyword">this</span>.x = <span class="number">1</span>;
-}
-
-<span class="keyword">var</span> o = <span class="keyword">new</span> test();
-<span class="built_in">console</span>.log(o.x);
-<span class="comment">//Javascript中的构造函数，通过new来创建一个实例，此时this为对象o，因此结果是1。</span>
-<span class="comment">//下面这个例子是Angular(快忘了！！！)中的Service</span>
-app.service(<span class="string">"MyService"</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-    <span class="keyword">this</span>.test = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-        <span class="built_in">console</span>.log(<span class="keyword">this</span>);
-        test2();
-    }
-    <span class="function"><span class="keyword">function</span> <span class="title">test2</span><span class="params">()</span></span>{
-        <span class="built_in">console</span>.log(<span class="keyword">this</span>);        
-    }
-}
-    MyService.test();        <span class="comment">//结果为MyService{test: function}和Window{}</span>
-);
-<span class="comment">//test2()是MyService的闭包（closure）。</span>
-</code></pre><h2 id="改变this的指向">改变this的指向</h2>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>{
-    <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);
-}
-<span class="keyword">var</span> o = {};
-o.x = <span class="number">1</span>;
-o.m = test;
-
-o.m.apply({x:<span class="number">5</span>});    <span class="comment">//5</span>
-o.m.call();        <span class="comment">//undefine</span>
-
-<span class="comment">//apply与call懂可以制定调用函数的上下文，默认是Global;</span>
-</code></pre><p>可以看到this的指向是不确定的，this值在进入上下文时确定，并且在上下文运行期间永久不变。上面的例子改变this的上下文，导致两次结果不一致也是最好的证据。   </p>
-<h2 id="解决之道">解决之道</h2>
-<p>血泪的教训：  </p>
+	    <h2 id="我还没有像cha妍一样放弃博客！">我还没有像cha妍一样放弃博客！</h2>
+<p>  今天就来总结一下Android中的自定义View。可以说重载 onMeasure()，onLayout()，onDraw()三个函数构建了自定义View的外观形象。再加上onTouchEvent()等重载视图的行为，可以构建任何我们需要的可感知到的自定义View。<br>  不管是自定义View还是系统提供的TextView这些，它们都必须放置在 LinearLayout等一些ViewGroup中，因此理论上我们可以很好的理解onMeasure()，onLayout()，onDraw()这三个函数：     </p>
 <ol>
-<li>Angular要将属性和方法给你提供一个$scope来绑定属性。  </li>
-<li>在js实践中不妨定义”val self = this”，在之后的作用域里面用self来操作对象的属性。</li>
+<li>View本身大小多少，这由onMeasure()决定    </li>
+<li>View在ViewGroup中的位置如何，这由onLayout()决定</li>
+<li>如何绘制这个View，由onDraw()来决定</li>
 </ol>
-<p><strong>收工睡觉</strong></p>
+<h2 id="举个TextView的栗子">举个TextView的栗子</h2>
+<pre><code>protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+     int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+     int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+     int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+     int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+     int width;
+     int height;
+     <span class="keyword">...</span> 
+     <span class="keyword">if</span> (widthMode == MeasureSpec.EXACTLY) {  
+       // Parent has told us how big to be. So be it.
+         width = widthSize;          
+     } 
+     <span class="keyword">else</span> {
+       <span class="keyword">if</span> (mLayout != null &amp;&amp; mEllipsize == null) { 
+                  des = desired(mLayout);             
+        }  
+                  <span class="keyword">...</span>    
+     }       
+     setMeasuredDimension(width, height);  
+}
+</code></pre><p>我们要理解的是widthMeasureSpec, heightMeasureSpec这两个参数是从哪里来的？onMeasure()函数由包含这个View的具体的ViewGroup调用，因此值也是 从这个ViewGroup中传入的。这里我直接给出答案：子类View的这两个参数，由ViewGroup中的 layout_width，layout_height和padding以及View自身的layout_margin共同决定。权值weight也是尤其需要考虑的因素，有它的存在情况可能会稍微复杂点。    </p>
+<h2 id="widthMeasureSpec,heightMeasureSpec的获取">widthMeasureSpec,heightMeasureSpec的获取</h2>
+<p>了解了这两个参数的来源，还要知道这两个值的作用。我们只取 heightMeasureSpec作说明。这个值由<strong>高32位</strong>和<strong>低16位</strong>组成，高32位保存的值叫specMode，可以通过如代码中所示的 MeasureSpec.getMode()获取；低16位为specSize，同样可以由MeasureSpec.getSize()获取。那么 specMode和specSize的作用有是什么呢？要想知道这一点，我们需要知道代码中的最后一行，所有的View的onMeasure()的最后一行都会调用setMeasureDimension()函数的作用——这个函数调用中传进去的值是View最终的视图大小。也就是说 onMeasure()中之前所作的所有工作都是为了最后这一句话服务的。</p>
+<blockquote>
+<p>   具体怎么用下次再说。( &gt;﹏&lt;。)～ </p>
+</blockquote>
 	  
 	</div>
 
@@ -164,14 +139,14 @@ o.m.call();        <span class="comment">//undefine</span>
 	<div class="pagination">
 <ul class="pagination">
 	 
-				
-    	<li class="prev"><a href="/2014/12/15/Android自定义View/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
-  		
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+        
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2014/08/28/Javascript Event研究（2）/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2014/09/19/老生常谈－js中的this/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -182,7 +157,7 @@ o.m.call();        <span class="comment">//undefine</span>
 	
 	<!-- comment -->
 	  
-        <div class="ds-thread" data-thread-key="2014/09/19/老生常谈－js中的this/"></div>
+        <div class="ds-thread" data-thread-key="2014/12/15/Android自定义View/"></div>
   
   <div class="alignleft">
 </div>
@@ -197,7 +172,7 @@ o.m.call();        <span class="comment">//undefine</span>
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	9月 19日 2014 
+	12月 15日 2014 
 	</div>
 	
 
@@ -208,7 +183,7 @@ o.m.call();        <span class="comment">//undefine</span>
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/js/">js<span>3</span></a></li>
+    <li><a href="/categories/Android/">Android<span>1</span></a></li>
   </li>
 
     </ul>
@@ -221,7 +196,7 @@ o.m.call();        <span class="comment">//undefine</span>
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/html5-js/">html5 js<span>3</span></a></li>
+  <li><a href="/tags/Android/">Android<span>1</span></a></li>
     </ul>
 	</div>
 		
