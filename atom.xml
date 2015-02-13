@@ -4,7 +4,7 @@
   <subtitle><![CDATA[九零后怪蜀黍]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www%E3%80%82waraiotoko.me/"/>
-  <updated>2015-02-13T03:11:48.388Z</updated>
+  <updated>2015-02-13T03:16:49.161Z</updated>
   <id>http://www。waraiotoko.me/</id>
   
   <author>
@@ -13,6 +13,39 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[走向视网膜]]></title>
+    <link href="http://www%E3%80%82waraiotoko.me/2015/02/13/%E8%B5%B0%E5%90%91%E8%A7%86%E7%BD%91%E8%86%9C/"/>
+    <id>http://www。waraiotoko.me/2015/02/13/走向视网膜/</id>
+    <published>2015-02-13T08:06:13.000Z</published>
+    <updated>2015-02-13T03:08:53.000Z</updated>
+    <content type="html"><![CDATA[<p>&#160; &#160; &#160; &#160;苹果采用Retina屏幕技术得到了更多人的亲眯，因为Retina给画面带来了前所未有的清晰平滑效果。相比之下，互联网非常的庞大，从当初的普通屏幕过渡到Retina是件缓慢而又痛苦的事情。在缺少行业标准来简化这个过程，每个Web开发人员和设计者为了确保他们的用户得到最好的视觉体验，Retina还是给他们带来了些小麻烦。<br>&#160; &#160; &#160; &#160;首先来区分一些概念：  </p>
+<ol>
+<li>Device pixels  </li>
+<li>Pixel Ratio</li>
+</ol>
+<h2 id="Device_Pixels">Device Pixels</h2>
+<blockquote>
+<p>&#160; &#160; &#160; &#160;设备像素也被称为物理像素,他是显示设备中一个最微小的物理部件。每个像素可以根据操作系统设置自己的颜色和亮度。正是这些设备像素的微小距离欺骗了我们肉眼看到的图像效果。            </p>
+</blockquote>
+<p>&#160; &#160; &#160; &#160;需要注意与pt的区别:<br>-px是相对长度，相对于显示器屏幕分辨率而言。例如老Mac的分辨率是72px perinch。<br>-pt是绝对长度，1in = 2.54cm = 25.4 mm = 72pt = 6pc。  </p>
+<h2 id="Pixels_Ratio">Pixels Ratio</h2>
+<p>&#160; &#160; &#160; &#160;即像素密度width=”200”,height=”300”的div在IPhone4上显示是400X600的缘故是，Pixels Ratio等于2.  Pixels Ratio可以使用window.devicePixelRatio获得，当然只支持现代浏览器。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>&#160; &#160; &#160; &#160;自然是使用Media Queries啦，具体可以看《响应式Web设计》这本书的某章。  </p>
+<h2 id="更好的方案">更好的方案</h2>
+<p>&#160; &#160; &#160; &#160;使用可缩放的矢量图，有待研究</p>
+<h3 id="参考文章">参考文章</h3>
+<p><a href="http://www.zhangxinxu.com/wordpress/2012/08/window-devicepixelratio/" target="_blank" rel="external">设备像素比devicePixelRatio简单介绍</a></p>
+]]></content>
+    
+    
+      <category term="blog" scheme="http://www%E3%80%82waraiotoko.me/tags/blog/"/>
+    
+      <category term="Retain" scheme="http://www%E3%80%82waraiotoko.me/categories/Retain/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Android自定义View]]></title>
@@ -481,7 +514,7 @@ o.m.call();        <span class="comment">//undefine</span>
     <link href="http://www%E3%80%82waraiotoko.me/2014/06/24/first/"/>
     <id>http://www。waraiotoko.me/2014/06/24/first/</id>
     <published>2014-06-24T08:06:13.000Z</published>
-    <updated>2014-07-24T02:34:52.000Z</updated>
+    <updated>2015-02-13T03:12:33.000Z</updated>
     <content type="html"><![CDATA[<p>这是我的<strong>第一篇博客</strong>，我使用hexo创建这个博客。<br>通过下面的命令，就可以创建文章了  </p>
 <figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">D:<span class="command">\warai</span>-blog&gt; hexo new first_post</div><div class="line"><span class="special">[</span>info<span class="special">]</span> File created at D:<span class="command">\warai</span>-blog<span class="command">\source</span><span class="command">\_</span>posts<span class="command">\post</span>.md</div></pre></td></tr></table></figure>
 
