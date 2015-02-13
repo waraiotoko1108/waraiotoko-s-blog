@@ -4,7 +4,7 @@
   <subtitle><![CDATA[九零后怪蜀黍]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www%E3%80%82waraiotoko.me/"/>
-  <updated>2014-12-22T02:14:46.787Z</updated>
+  <updated>2015-02-13T03:11:48.388Z</updated>
   <id>http://www。waraiotoko.me/</id>
   
   <author>
@@ -68,10 +68,10 @@
     <link href="http://www%E3%80%82waraiotoko.me/2014/09/19/%E8%80%81%E7%94%9F%E5%B8%B8%E8%B0%88%EF%BC%8Djs%E4%B8%AD%E7%9A%84this/"/>
     <id>http://www。waraiotoko.me/2014/09/19/老生常谈－js中的this/</id>
     <published>2014-09-19T15:37:29.000Z</published>
-    <updated>2014-09-19T16:40:44.000Z</updated>
+    <updated>2014-12-22T02:37:33.000Z</updated>
     <content type="html"><![CDATA[<p>为了战胜拖延症，今天来总结一下Javascript中的this关键字。  </p>
 <blockquote>
-<p>Javascript中this永远是指向调用它的对象。        －－W3School  </p>
+<p>Javascript中this将永远是指向调用它的对象。        －－W3School  </p>
 </blockquote>
 <h2 id="看例一_纯代码解释对象方法调用">看例一 纯代码解释对象方法调用</h2>
 <pre><code><span class="keyword">var</span> x =<span class="number">1</span>;
